@@ -1,0 +1,24 @@
+{
+  "name": "tmd",
+  "version": "1.0.0",
+  "description": "task management dashboard study project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlenaGM/Task-Management-Dashboard.git"
+  },
+  "author": "alena guillaume",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlenaGM/Task-Management-Dashboard/issues"
+  },
+  "homepage": "https://github.com/AlenaGM/Task-Management-Dashboard#readme",
+  "dependencies": {
+    "chart.js": "^3.7.1",
+    "js-datepicker": "^5.18.0",
+    "moment": "^2.29.1"
+  }
+}
