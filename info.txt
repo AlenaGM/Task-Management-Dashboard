@@ -1,0 +1,7 @@
+browserify assets/js/index.js -o assets/js/bundle.js
+
+https://github.com/qodesmith/datepicker#installation
+
+https://www.chartjs.org/docs/latest/getting-started/usage.html
+
+https://momentjs.com/

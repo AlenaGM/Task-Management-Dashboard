@@ -5,6 +5,7 @@ let date = moment();
 console.log(date);
 
 const Chart = require('chart.js');
+const ctx = document.getElementById('chart');
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
