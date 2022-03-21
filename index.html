@@ -14,9 +14,22 @@
     <div class="wrapper">
         <header class="header"></header>
         <main class="main">
-            <h1>Task Management Dashboard</h1>
-            <div id="chart"></div>
-            <input type="text" id="date"/>
+            <h1>Панель управления задачами</h1>
+            <h2>Обратный отсчет</h2>
+            <div>
+                <label for="date">Сегодня:</label>
+                <input type="text" class="countdown__input" id="today"/>
+            </div>
+            <div>
+                <label for="deadline">Дедлайн через:</label>
+                <input type="text" class="countdown__input" id="deadline"/>
+            </div>
+            <h2>Прогресс по задачам </h2>
+            <div class="progress__input">Теория</div>
+            <div class="progress__input">Вопросы</div>
+            <div class="progress__input">Практика 1</div>
+            <div class="progress__input">Практика 2</div>
+            <div class="progress__input">Практика 3</div>
         </main>
         <div class="footer"></div>
     </div>

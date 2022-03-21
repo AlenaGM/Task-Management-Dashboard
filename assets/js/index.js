@@ -1,9 +1,16 @@
 "use strict"
 
 const moment = require('moment');
-let date = moment();
+require('moment/locale/ru.js');
+let date = moment().locale('ru').format('LLLL');
 console.log(date);
+document.querySelector('#today').value = date;
 
+let deadline = moment().endOf('week').fromNow();
+console.log(deadline);
+document.querySelector('#deadline').value = deadline;
+
+/*moment().endOf('day').fromNow();
 const Chart = require('chart.js');
 const ctx = document.getElementById('chart');
 const myChart = new Chart(ctx, {
@@ -44,10 +51,10 @@ const myChart = new Chart(ctx, {
 document.querySelector('#chart').innerHTML = myChart;
 
 const datepicker = require('js-datepicker');
-const picker = datepicker('#date', {
+const picker = datepicker('#datepicker', {
     onSelect: (instance, date) => {
         console.log('Ura! Pyatnitsa!')
     }
-})
+})*/
 
 
