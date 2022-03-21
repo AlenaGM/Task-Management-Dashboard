@@ -14,13 +14,43 @@ document.querySelector('#deadline').value = deadline;
 const Chart = require('chart.js');
 const ctx = document.getElementById('myChart');
 
+let monWork = 1;
+let tueWork = 2;
+let wedWork = 3;
+let thuWork = 4;
+let friWork = 5;
+let satWork = 6;
+let sunWork = 7;
+
+document.querySelector('#weekday__button').addEventListener('click', function(){
+    attributeDayWork();
+})
+
+function attributeDayWork(){
+    monWork = document.querySelector('#mon_work').value;
+    tueWork = document.querySelector('#tue_work').value;
+    wedWork = document.querySelector('#wed_work').value;
+    thuWork = document.querySelector('#thu_work').value;
+    friWork = document.querySelector('#fri_work').value;
+    satWork = document.querySelector('#sat_work').value;
+    sunWork = document.querySelector('#sun_work').value;
+
+    console.log(monWork);
+    console.log(tueWork);
+    console.log(wedWork);
+    console.log(thuWork);
+    console.log(friWork);
+    console.log(satWork);
+    console.log(sunWork);
+}
+
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
         datasets: [{
             label: 'кол-во часов',
-            data: [2, 5, 1.5, 4, 2, 3, 6],
+            data: [monWork, tueWork, wedWork, thuWork, friWork, satWork, sunWork],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -39,7 +69,7 @@ const myChart = new Chart(ctx, {
                 'rgba(255, 159, 64, 1)',
                 'rgba(68, 214, 44, 1)',
             ],
-            borderWidth: 1
+            borderWidth: 1,
         }]
     },
     options: {
@@ -50,6 +80,16 @@ const myChart = new Chart(ctx, {
         }
     }
 });
+
+/*
+myChart.data.datasets[0].data[0] = monWork;
+myChart.data.datasets[0].data[1] = tueWork;
+myChart.data.datasets[0].data[2] = wedWork;
+myChart.data.datasets[0].data[3] = thuWork;
+myChart.data.datasets[0].data[4] = friWork;
+myChart.data.datasets[0].data[5] = satWork;
+myChart.data.datasets[0].data[6] = sunWork;
+*/
 
 
 /*
