@@ -14,13 +14,13 @@ document.querySelector('#deadline').value = deadline;
 const Chart = require('chart.js');
 const ctx = document.getElementById('myChart');
 
-let monWork;
-let tueWork;
-let wedWork;
-let thuWork;
-let friWork;
-let satWork;
-let sunWork;
+let monWork = localStorage.getItem(`monWork`);
+let tueWork = localStorage.getItem(`tueWork`);
+let wedWork = localStorage.getItem(`wedWork`);
+let thuWork = localStorage.getItem(`thuWork`);
+let friWork = localStorage.getItem(`friWork`);
+let satWork = localStorage.getItem(`satWork`);
+let sunWork = localStorage.getItem(`sunWork`);
 
 document.querySelector('#weekday__button').addEventListener('click', function(){
     attributeDayWork();
