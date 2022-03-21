@@ -10,23 +10,25 @@ let deadline = moment().endOf('week').fromNow();
 console.log(deadline);
 document.querySelector('#deadline').value = deadline;
 
-/*moment().endOf('day').fromNow();
+
 const Chart = require('chart.js');
-const ctx = document.getElementById('chart');
+const ctx = document.getElementById('myChart');
+
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'кол-во часов',
+            data: [2, 5, 1.5, 4, 2, 3, 6],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(68, 214, 44, 0.2)',
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -34,7 +36,8 @@ const myChart = new Chart(ctx, {
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255, 159, 64, 1)',
+                'rgba(68, 214, 44, 1)',
             ],
             borderWidth: 1
         }]
@@ -48,8 +51,8 @@ const myChart = new Chart(ctx, {
     }
 });
 
-document.querySelector('#chart').innerHTML = myChart;
 
+/*
 const datepicker = require('js-datepicker');
 const picker = datepicker('#datepicker', {
     onSelect: (instance, date) => {
