@@ -15,16 +15,18 @@ document.querySelector('#deadline').value = deadline;
 const Chart = require('chart.js');
 const ctx = document.getElementById('myChart');
 
-let monWork = 1;
-let tueWork = 2;
-let wedWork = 3;
-let thuWork = 4;
-let friWork = 5;
-let satWork = 6;
-let sunWork = 7;
+let monWork;
+let tueWork;
+let wedWork;
+let thuWork;
+let friWork;
+let satWork;
+let sunWork;
 
 document.querySelector('#weekday__button').addEventListener('click', function(){
     attributeDayWork();
+    saveDayWork();
+    renewDayWork();
 })
 
 function attributeDayWork(){
@@ -35,14 +37,20 @@ function attributeDayWork(){
     friWork = document.querySelector('#fri_work').value;
     satWork = document.querySelector('#sat_work').value;
     sunWork = document.querySelector('#sun_work').value;
+}
 
-    console.log(monWork);
-    console.log(tueWork);
-    console.log(wedWork);
-    console.log(thuWork);
-    console.log(friWork);
-    console.log(satWork);
-    console.log(sunWork);
+function saveDayWork() {
+    localStorage.setItem(`monWork`, monWork);
+    localStorage.setItem(`tueWork`, tueWork);
+    localStorage.setItem(`wedWork`, wedWork);
+    localStorage.setItem(`thuWork`, thuWork);
+    localStorage.setItem(`friWork`, friWork);
+    localStorage.setItem(`satWork`, satWork);
+    localStorage.setItem(`sunWork`, sunWork);
+}
+
+function renewDayWork() {
+    location.reload();
 }
 
 const myChart = new Chart(ctx, {
@@ -51,7 +59,7 @@ const myChart = new Chart(ctx, {
         labels: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
         datasets: [{
             label: 'кол-во часов',
-            data: [monWork, tueWork, wedWork, thuWork, friWork, satWork, sunWork],
+            data: [`${localStorage.getItem(`monWork`)}`, `${localStorage.getItem(`tueWork`)}`, `${localStorage.getItem(`wedWork`)}`, `${localStorage.getItem(`thuWork`)}`, `${localStorage.getItem(`friWork`)}`, `${localStorage.getItem(`satWork`)}`, `${localStorage.getItem(`sunWork`)}`],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
