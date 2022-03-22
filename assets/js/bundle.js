@@ -10,11 +10,12 @@ document.querySelector('#today').value = date;
 let deadline = moment().endOf('week').fromNow();
 console.log(deadline);
 document.querySelector('#deadline').value = deadline;
+
 //3-й блок: время работы по типу задач
 const Chart = require('chart.js');
 
 const cty = document.getElementById('pieChart');
-//***
+
 const dayTasks = document.querySelectorAll('.task__input');
 const dayTaskButtons = document.querySelectorAll('.task__button');
 
@@ -63,7 +64,7 @@ document.querySelector('#weektask__button').addEventListener('click', function c
 
     renewDayTask();
 })
-//***
+
 console.log(`${localStorage.getItem(`theory`)}`);
 const pieChart = new Chart(cty, {
     type: 'pie',
