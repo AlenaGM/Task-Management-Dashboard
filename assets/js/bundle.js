@@ -28,9 +28,6 @@ function initDayWorks(){
         const dayWorkButton = dayWorkButtons[index];
 
         function setDayWorkToLocalStorage(){
-        console.log(localStorage.getItem(dayWork.id));
-        console.log(dayWork.value);
-        console.log(+`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
         localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
         }
 
