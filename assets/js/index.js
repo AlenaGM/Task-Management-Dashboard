@@ -10,7 +10,7 @@ let deadline = moment().endOf('week').fromNow();
 console.log(deadline);
 document.querySelector('#deadline').value = deadline;
 
-
+//4-й блок: время работы по дням недели
 const Chart = require('chart.js');
 const ctx = document.getElementById('myChart');
 
@@ -87,11 +87,7 @@ let friWork = localStorage.getItem(`friWork`);
 let satWork = localStorage.getItem(`satWork`);
 let sunWork = localStorage.getItem(`sunWork`);
 
-document.querySelector('#weekday__button').addEventListener('click', function(){
-    attributeDayWork();
-    saveDayWork();
-    renewDayWork();
-})
+
 
 function attributeDayWork(){
     monWork = document.querySelector('#mon_work').value;
