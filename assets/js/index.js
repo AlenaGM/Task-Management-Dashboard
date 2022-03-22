@@ -42,6 +42,18 @@ function renewDayWork() {
     location.reload();
 }
 
+document.querySelector('#weekday__button').addEventListener('click', function clearDayWork() {
+    localStorage.setItem(`mon_work`, +`${localStorage.getItem(`mon_work`)}` * 0);
+    localStorage.setItem(`tue_work`, +`${localStorage.getItem(`tue_work`)}` * 0);
+    localStorage.setItem(`wed_work`, +`${localStorage.getItem(`wed_work`)}` * 0);
+    localStorage.setItem(`thu_work`, +`${localStorage.getItem(`thu_work`)}` * 0);
+    localStorage.setItem(`fri_work`, +`${localStorage.getItem(`fri_work`)}` * 0);
+    localStorage.setItem(`sat_work`, +`${localStorage.getItem(`sat_work`)}` * 0);
+    localStorage.setItem(`sun_work`, +`${localStorage.getItem(`sun_work`)}` * 0);
+
+    renewDayWork();
+})
+
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {

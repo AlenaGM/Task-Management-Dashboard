@@ -43,6 +43,18 @@ function renewDayWork() {
     location.reload();
 }
 
+document.querySelector('#weekday__button').addEventListener('click', function clearDayWork() {
+    localStorage.setItem(`mon_work`, +`${localStorage.getItem(`mon_work`)}` * 0);
+    localStorage.setItem(`tue_work`, +`${localStorage.getItem(`tue_work`)}` * 0);
+    localStorage.setItem(`wed_work`, +`${localStorage.getItem(`wed_work`)}` * 0);
+    localStorage.setItem(`thu_work`, +`${localStorage.getItem(`thu_work`)}` * 0);
+    localStorage.setItem(`fri_work`, +`${localStorage.getItem(`fri_work`)}` * 0);
+    localStorage.setItem(`sat_work`, +`${localStorage.getItem(`sat_work`)}` * 0);
+    localStorage.setItem(`sun_work`, +`${localStorage.getItem(`sun_work`)}` * 0);
+
+    renewDayWork();
+})
+
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -81,33 +93,6 @@ const myChart = new Chart(ctx, {
 });
 
 
-
-/*
-
-function attributeDayWork(){
-    monWork = document.querySelector('#mon_work').value;
-    tueWork = document.querySelector('#tue_work').value;
-    wedWork = document.querySelector('#wed_work').value;
-    thuWork = document.querySelector('#thu_work').value;
-    friWork = document.querySelector('#fri_work').value;
-    satWork = document.querySelector('#sat_work').value;
-    sunWork = document.querySelector('#sun_work').value;
-}
-
-function saveDayWork() {
-    localStorage.setItem(`monWork`, monWork);
-    localStorage.setItem(`tueWork`, tueWork);
-    localStorage.setItem(`wedWork`, wedWork);
-    localStorage.setItem(`thuWork`, thuWork);
-    localStorage.setItem(`friWork`, friWork);
-    localStorage.setItem(`satWork`, satWork);
-    localStorage.setItem(`sunWork`, sunWork);
-}
-
-function renewDayWork() {
-    location.reload();
-}
-*/
 /*
 myChart.data.datasets[0].data[0] = monWork;
 myChart.data.datasets[0].data[1] = tueWork;
