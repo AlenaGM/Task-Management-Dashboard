@@ -32,13 +32,15 @@ function initDayWorks(){
 
         dayWorkButton.addEventListener('click', function(){
             setDayWorkToLocalStorage();
+            renewDayWork();
             dayWork.value = '';
-    })
-
+        })
     }
-
 }
 
+function renewDayWork() {
+    location.reload();
+}
 
 const myChart = new Chart(ctx, {
     type: 'bar',
@@ -46,7 +48,7 @@ const myChart = new Chart(ctx, {
         labels: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
         datasets: [{
             label: 'кол-во часов',
-            data: [`${localStorage.getItem(`monWork`)}`, `${localStorage.getItem(`tueWork`)}`, `${localStorage.getItem(`wedWork`)}`, `${localStorage.getItem(`thuWork`)}`, `${localStorage.getItem(`friWork`)}`, `${localStorage.getItem(`satWork`)}`, `${localStorage.getItem(`sunWork`)}`],
+            data: [`${localStorage.getItem(`mon_work`)}`, `${localStorage.getItem(`tue_work`)}`, `${localStorage.getItem(`wed_work`)}`, `${localStorage.getItem(`thu_work`)}`, `${localStorage.getItem(`fri_work`)}`, `${localStorage.getItem(`sat_work`)}`, `${localStorage.getItem(`sun_work`)}`],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -77,41 +79,6 @@ const myChart = new Chart(ctx, {
     }
 });
 
-
-
-let monWork = localStorage.getItem(`monWork`);
-let tueWork = localStorage.getItem(`tueWork`);
-let wedWork = localStorage.getItem(`wedWork`);
-let thuWork = localStorage.getItem(`thuWork`);
-let friWork = localStorage.getItem(`friWork`);
-let satWork = localStorage.getItem(`satWork`);
-let sunWork = localStorage.getItem(`sunWork`);
-
-
-
-function attributeDayWork(){
-    monWork = document.querySelector('#mon_work').value;
-    tueWork = document.querySelector('#tue_work').value;
-    wedWork = document.querySelector('#wed_work').value;
-    thuWork = document.querySelector('#thu_work').value;
-    friWork = document.querySelector('#fri_work').value;
-    satWork = document.querySelector('#sat_work').value;
-    sunWork = document.querySelector('#sun_work').value;
-}
-
-function saveDayWork() {
-    localStorage.setItem(`monWork`, monWork);
-    localStorage.setItem(`tueWork`, tueWork);
-    localStorage.setItem(`wedWork`, wedWork);
-    localStorage.setItem(`thuWork`, thuWork);
-    localStorage.setItem(`friWork`, friWork);
-    localStorage.setItem(`satWork`, satWork);
-    localStorage.setItem(`sunWork`, sunWork);
-}
-
-function renewDayWork() {
-    location.reload();
-}
 
 /*
 myChart.data.datasets[0].data[0] = monWork;

@@ -11,7 +11,7 @@ let deadline = moment().endOf('week').fromNow();
 console.log(deadline);
 document.querySelector('#deadline').value = deadline;
 
-
+//4-й блок: время работы по дням недели
 const Chart = require('chart.js');
 const ctx = document.getElementById('myChart');
 
@@ -33,13 +33,15 @@ function initDayWorks(){
 
         dayWorkButton.addEventListener('click', function(){
             setDayWorkToLocalStorage();
+            renewDayWork();
             dayWork.value = '';
-    })
-
+        })
     }
-
 }
 
+function renewDayWork() {
+    location.reload();
+}
 
 const myChart = new Chart(ctx, {
     type: 'bar',
@@ -47,7 +49,7 @@ const myChart = new Chart(ctx, {
         labels: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
         datasets: [{
             label: 'кол-во часов',
-            data: [`${localStorage.getItem(`monWork`)}`, `${localStorage.getItem(`tueWork`)}`, `${localStorage.getItem(`wedWork`)}`, `${localStorage.getItem(`thuWork`)}`, `${localStorage.getItem(`friWork`)}`, `${localStorage.getItem(`satWork`)}`, `${localStorage.getItem(`sunWork`)}`],
+            data: [`${localStorage.getItem(`mon_work`)}`, `${localStorage.getItem(`tue_work`)}`, `${localStorage.getItem(`wed_work`)}`, `${localStorage.getItem(`thu_work`)}`, `${localStorage.getItem(`fri_work`)}`, `${localStorage.getItem(`sat_work`)}`, `${localStorage.getItem(`sun_work`)}`],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -80,19 +82,7 @@ const myChart = new Chart(ctx, {
 
 
 
-let monWork = localStorage.getItem(`monWork`);
-let tueWork = localStorage.getItem(`tueWork`);
-let wedWork = localStorage.getItem(`wedWork`);
-let thuWork = localStorage.getItem(`thuWork`);
-let friWork = localStorage.getItem(`friWork`);
-let satWork = localStorage.getItem(`satWork`);
-let sunWork = localStorage.getItem(`sunWork`);
-
-document.querySelector('#weekday__button').addEventListener('click', function(){
-    attributeDayWork();
-    saveDayWork();
-    renewDayWork();
-})
+/*
 
 function attributeDayWork(){
     monWork = document.querySelector('#mon_work').value;
@@ -117,7 +107,7 @@ function saveDayWork() {
 function renewDayWork() {
     location.reload();
 }
-
+*/
 /*
 myChart.data.datasets[0].data[0] = monWork;
 myChart.data.datasets[0].data[1] = tueWork;
