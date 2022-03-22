@@ -30,18 +30,17 @@ function initDayTasks(){
 
         function setDayTaskToLocalStorage(){
 
-            console.log(`${localStorage.getItem(dayTask)}`);
-
             if(localStorage.getItem(dayTask.id) !=0){
-                localStorage.setItem(dayTask.id, +`${localStorage.getItem(dayTask.id)}`+ +dayTask.value);
+                //localStorage.setItem(dayTask.id, +`${localStorage.getItem(dayTask.id)}`+ +dayTask.value);
+                localStorage.setItem(dayTask.id, +dayTask.value);
             } else {
-            localStorage.setItem(dayTask.id, 0);
-            localStorage.setItem(dayTask.id, +`${localStorage.getItem(dayTask.id)}`+ +dayTask.valu);
+            localStorage.setItem(dayTask.id, +0);
+            //localStorage.setItem(dayTask.id, +`${localStorage.getItem(dayTask.id)}`+ +dayTask.value);
+            localStorage.setItem(dayTask.id, +dayTask.value);
             }
         }
 
         dayTaskButton.addEventListener('click', function(){
-
             setDayTaskToLocalStorage();
             renewDayTask();
             dayTask.value = '';
@@ -64,7 +63,7 @@ document.querySelector('#weektask__button').addEventListener('click', function c
     renewDayTask();
 })
 
-console.log(`${localStorage.getItem(`theory`)}`);
+
 const pieChart = new Chart(cty, {
     type: 'pie',
     data: {
@@ -111,10 +110,12 @@ function initDayWorks(){
         function setDayWorkToLocalStorage(){
 
             if(localStorage.getItem(dayWork.id) !=0){
-                localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
+                //localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
+                localStorage.setItem(dayWork.id, dayWork.value);
             } else {
             localStorage.setItem(dayWork.id, 0);
-            localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
+            localStorage.setItem(dayWork.id, dayWork.value);
+            //localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
             }
         }
 
