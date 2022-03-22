@@ -31,7 +31,40 @@
             <div class="progress__input">Практика 2</div>
             <div class="progress__input">Практика 3</div>
             <h2>Время работы над задачами</h2>
-            <div class="task__input"></div>
+            <div>
+                <div>
+                    <div class="task__box">
+                        <label for="theory">Теория (часы):</label>
+                        <input type="number" class="task__input" id="theory" value=""/>
+                        <button class="task__button">Добавить</button>
+                    </div>
+                    <div class="task__box">
+                        <label for="questions">Вопросы (часы):</label>
+                        <input type="number" class="task__input" id="questions" value=""/>
+                        <button class="task__button">Добавить</button>
+                    </div>
+                    <div class="task__box">
+                        <label for="practice">Практика (часы):</label>
+                        <input type="number" class="task__input" id="practice" value=""/>
+                        <button class="task__button">Добавить</button>
+                    </div>
+                    <div class="task__box">
+                        <label for="webinar">Вебинары (часы):</label>
+                        <input type="number" class="task__input" id="webinar" value=""/>
+                        <button class="task__button">Добавить</button>
+                    </div>
+                    <div class="task__box">
+                        <label for="selfstudy">Дополнительно (часы):</label>
+                        <input type="number" class="task__input" id="selfstudy" value=""/>
+                        <button class="task__button">Добавить</button>
+                    </div>
+                    <button id="weektask__button">Очистить часы</button>
+                </div>
+                <div class="pieChart__input">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+
             <h2>Распределение времени работы по дням недели </h2>
             <div>
                 <div>

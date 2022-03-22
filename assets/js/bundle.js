@@ -10,9 +10,89 @@ document.querySelector('#today').value = date;
 let deadline = moment().endOf('week').fromNow();
 console.log(deadline);
 document.querySelector('#deadline').value = deadline;
+//3-й блок: время работы по типу задач
+const Chart = require('chart.js');
+
+const cty = document.getElementById('pieChart');
+//***
+const dayTasks = document.querySelectorAll('.task__input');
+const dayTaskButtons = document.querySelectorAll('.task__button');
+
+if (dayTasks.length > 0) {
+    initDayTasks();
+}
+
+function initDayTasks(){
+    for (let index = 0; index < dayTasks.length; index++) {
+
+        const dayTask = dayTasks[index];
+        const dayTaskButton = dayTaskButtons[index];
+
+        function setDayTaskToLocalStorage(){
+
+            console.log(`${localStorage.getItem(dayTask)}`);
+
+            if(localStorage.getItem(dayTask.id) !=0){
+                localStorage.setItem(dayTask.id, +`${localStorage.getItem(dayTask.id)}`+ +dayTask.value);
+            } else {
+            localStorage.setItem(dayTask.id, 0);
+            localStorage.setItem(dayTask.id, +`${localStorage.getItem(dayTask.id)}`+ +dayTask.valu);
+            }
+        }
+
+        dayTaskButton.addEventListener('click', function(){
+
+            setDayTaskToLocalStorage();
+            renewDayTask();
+            dayTask.value = '';
+        })
+    }
+}
+
+function renewDayTask() {
+    location.reload();
+}
+
+document.querySelector('#weektask__button').addEventListener('click', function clearDayTask() {
+
+    localStorage.setItem(`theory`, +`${localStorage.getItem(`theory`)}` * 0);
+    localStorage.setItem(`questions`, +`${localStorage.getItem(`questions`)}` * 0);
+    localStorage.setItem(`practice`, +`${localStorage.getItem(`practice`)}` * 0);
+    localStorage.setItem(`webinar`, +`${localStorage.getItem(`webinar`)}` * 0);
+    localStorage.setItem(`selfstudy`, +`${localStorage.getItem(`selfstudy`)}` * 0);
+
+    renewDayTask();
+})
+//***
+console.log(`${localStorage.getItem(`theory`)}`);
+const pieChart = new Chart(cty, {
+    type: 'pie',
+    data: {
+        labels: ['Теория', 'Вопросы', 'Практика', 'Вебинар', 'Дополн.'],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [`${localStorage.getItem(`theory`)}`, `${localStorage.getItem(`questions`)}`, `${localStorage.getItem(`practice`)}`, `${localStorage.getItem(`webinar`)}`, `${localStorage.getItem(`selfstudy`)}`],
+            backgroundColor: [
+                'rgb(255, 99, 132, 0.2)',
+                'rgb(54, 162, 235, 0.2)',
+                'rgb(255, 205, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    }
+});
+
 
 //4-й блок: время работы по дням недели
-const Chart = require('chart.js');
 const ctx = document.getElementById('myChart');
 
 const dayWorks = document.querySelectorAll('.weekday__input');
@@ -24,10 +104,12 @@ if (dayWorks.length > 0) {
 
 function initDayWorks(){
     for (let index = 0; index < dayWorks.length; index++) {
+
         const dayWork = dayWorks[index];
         const dayWorkButton = dayWorkButtons[index];
 
         function setDayWorkToLocalStorage(){
+
             if(localStorage.getItem(dayWork.id) !=0){
                 localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
             } else {
@@ -37,6 +119,7 @@ function initDayWorks(){
         }
 
         dayWorkButton.addEventListener('click', function(){
+
             setDayWorkToLocalStorage();
             renewDayWork();
             dayWork.value = '';
@@ -49,6 +132,7 @@ function renewDayWork() {
 }
 
 document.querySelector('#weekday__button').addEventListener('click', function clearDayWork() {
+
     localStorage.setItem(`mon_work`, +`${localStorage.getItem(`mon_work`)}` * 0);
     localStorage.setItem(`tue_work`, +`${localStorage.getItem(`tue_work`)}` * 0);
     localStorage.setItem(`wed_work`, +`${localStorage.getItem(`wed_work`)}` * 0);
@@ -96,17 +180,6 @@ const myChart = new Chart(ctx, {
         }
     }
 });
-
-
-/*
-myChart.data.datasets[0].data[0] = monWork;
-myChart.data.datasets[0].data[1] = tueWork;
-myChart.data.datasets[0].data[2] = wedWork;
-myChart.data.datasets[0].data[3] = thuWork;
-myChart.data.datasets[0].data[4] = friWork;
-myChart.data.datasets[0].data[5] = satWork;
-myChart.data.datasets[0].data[6] = sunWork;
-*/
 
 
 /*
