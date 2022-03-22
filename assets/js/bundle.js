@@ -28,7 +28,12 @@ function initDayWorks(){
         const dayWorkButton = dayWorkButtons[index];
 
         function setDayWorkToLocalStorage(){
-        localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
+            if(localStorage.getItem(dayWork.id) !=0){
+                localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
+            } else {
+            localStorage.setItem(dayWork.id, 0);
+            localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
+            }
         }
 
         dayWorkButton.addEventListener('click', function(){
