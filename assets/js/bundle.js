@@ -15,43 +15,31 @@ document.querySelector('#deadline').value = deadline;
 const Chart = require('chart.js');
 const ctx = document.getElementById('myChart');
 
-let monWork = localStorage.getItem(`monWork`);
-let tueWork = localStorage.getItem(`tueWork`);
-let wedWork = localStorage.getItem(`wedWork`);
-let thuWork = localStorage.getItem(`thuWork`);
-let friWork = localStorage.getItem(`friWork`);
-let satWork = localStorage.getItem(`satWork`);
-let sunWork = localStorage.getItem(`sunWork`);
+const dayWorks = document.querySelectorAll('.weekday__input');
+const dayWorkButtons = document.querySelectorAll('.daywork__button');
 
-document.querySelector('#weekday__button').addEventListener('click', function(){
-    attributeDayWork();
-    saveDayWork();
-    renewDayWork();
-})
-
-function attributeDayWork(){
-    monWork = document.querySelector('#mon_work').value;
-    tueWork = document.querySelector('#tue_work').value;
-    wedWork = document.querySelector('#wed_work').value;
-    thuWork = document.querySelector('#thu_work').value;
-    friWork = document.querySelector('#fri_work').value;
-    satWork = document.querySelector('#sat_work').value;
-    sunWork = document.querySelector('#sun_work').value;
+if (dayWorks.length > 0) {
+    initDayWorks();
 }
 
-function saveDayWork() {
-    localStorage.setItem(`monWork`, monWork);
-    localStorage.setItem(`tueWork`, tueWork);
-    localStorage.setItem(`wedWork`, wedWork);
-    localStorage.setItem(`thuWork`, thuWork);
-    localStorage.setItem(`friWork`, friWork);
-    localStorage.setItem(`satWork`, satWork);
-    localStorage.setItem(`sunWork`, sunWork);
+function initDayWorks(){
+    for (let index = 0; index < dayWorks.length; index++) {
+        const dayWork = dayWorks[index];
+        const dayWorkButton = dayWorkButtons[index];
+
+        function setDayWorkToLocalStorage(){
+        localStorage.setItem(dayWork.id,dayWork.value);
+        }
+
+        dayWorkButton.addEventListener('click', function(){
+            setDayWorkToLocalStorage();
+            dayWork.value = '';
+    })
+
+    }
+
 }
 
-function renewDayWork() {
-    location.reload();
-}
 
 const myChart = new Chart(ctx, {
     type: 'bar',
@@ -89,6 +77,46 @@ const myChart = new Chart(ctx, {
         }
     }
 });
+
+
+
+let monWork = localStorage.getItem(`monWork`);
+let tueWork = localStorage.getItem(`tueWork`);
+let wedWork = localStorage.getItem(`wedWork`);
+let thuWork = localStorage.getItem(`thuWork`);
+let friWork = localStorage.getItem(`friWork`);
+let satWork = localStorage.getItem(`satWork`);
+let sunWork = localStorage.getItem(`sunWork`);
+
+document.querySelector('#weekday__button').addEventListener('click', function(){
+    attributeDayWork();
+    saveDayWork();
+    renewDayWork();
+})
+
+function attributeDayWork(){
+    monWork = document.querySelector('#mon_work').value;
+    tueWork = document.querySelector('#tue_work').value;
+    wedWork = document.querySelector('#wed_work').value;
+    thuWork = document.querySelector('#thu_work').value;
+    friWork = document.querySelector('#fri_work').value;
+    satWork = document.querySelector('#sat_work').value;
+    sunWork = document.querySelector('#sun_work').value;
+}
+
+function saveDayWork() {
+    localStorage.setItem(`monWork`, monWork);
+    localStorage.setItem(`tueWork`, tueWork);
+    localStorage.setItem(`wedWork`, wedWork);
+    localStorage.setItem(`thuWork`, thuWork);
+    localStorage.setItem(`friWork`, friWork);
+    localStorage.setItem(`satWork`, satWork);
+    localStorage.setItem(`sunWork`, sunWork);
+}
+
+function renewDayWork() {
+    location.reload();
+}
 
 /*
 myChart.data.datasets[0].data[0] = monWork;
