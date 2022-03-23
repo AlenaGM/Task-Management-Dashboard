@@ -32,12 +32,12 @@ function initDayTasks(){
         function setDayTaskToLocalStorage(){
 
             if(localStorage.getItem(dayTask.id) !=0){
-                //localStorage.setItem(dayTask.id, +`${localStorage.getItem(dayTask.id)}`+ +dayTask.value);
-                localStorage.setItem(dayTask.id, +dayTask.value);
+                localStorage.setItem(dayTask.id, (parseInt(localStorage.getItem(dayTask.id))) + +dayTask.value);
+                //localStorage.setItem(dayTask.id, +dayTask.value);
             } else {
             localStorage.setItem(dayTask.id, +0);
-            //localStorage.setItem(dayTask.id, +`${localStorage.getItem(dayTask.id)}`+ +dayTask.value);
-            localStorage.setItem(dayTask.id, +dayTask.value);
+            localStorage.setItem(dayTask.id, (parseInt(localStorage.getItem(dayTask.id))) + +dayTask.value);
+            //localStorage.setItem(dayTask.id, +dayTask.value);
             }
         }
 
@@ -111,12 +111,12 @@ function initDayWorks(){
         function setDayWorkToLocalStorage(){
 
             if(localStorage.getItem(dayWork.id) !=0){
-                //localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
-                localStorage.setItem(dayWork.id, dayWork.value);
+                localStorage.setItem(dayWork.id, (parseInt(localStorage.getItem(dayWork.id))) + +dayWork.value);
+                //localStorage.setItem(dayWork.id, dayWork.value);
             } else {
             localStorage.setItem(dayWork.id, 0);
-            localStorage.setItem(dayWork.id, dayWork.value);
-            //localStorage.setItem(dayWork.id, +`${localStorage.getItem(dayWork.id)}` + +dayWork.value);
+            //localStorage.setItem(dayWork.id, dayWork.value);
+            localStorage.setItem(dayWork.id, (parseInt(localStorage.getItem(dayWork.id))) + +dayWork.value);
             }
         }
 
